@@ -1,5 +1,6 @@
 package data;
 
+import com.google.gson.annotations.Expose;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -7,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -14,17 +16,20 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 
-@NamedQuery(name = "Representative.getByCountry", query = "")
 @Entity
+@NamedQuery(name = "Representative.getByCountry", query = "SELECT r FROM Representative r WHERE r.country.name = :countryName")
 public class Representative {
 
     @Id
     @GeneratedValue
+    @Expose
     private Long representativeId;
 
+    @Expose
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "country_id")
     private Country country;
 
     @OneToMany(mappedBy = "representative", cascade = CascadeType.PERSIST)
@@ -75,6 +80,15 @@ public class Representative {
     public void setRepresentativeId(Long representativeId) {
         this.representativeId = representativeId;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+    
+    
+    
+    
 
     
 }

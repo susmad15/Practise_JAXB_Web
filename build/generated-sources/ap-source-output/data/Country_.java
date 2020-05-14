@@ -7,7 +7,7 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-05-13T21:09:04")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2020-05-14T18:41:46")
 @StaticMetamodel(Country.class)
 public class Country_ { 
 

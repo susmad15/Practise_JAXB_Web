@@ -1,12 +1,13 @@
 package data;
 
 import adapters.DateAdapter;
+import adapters.LocalDateConverter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @Entity
-@NamedQuery(name = "Country.getAll", query = "")
+@NamedQuery(name = "Country.getAll", query = "SELECT DISTINCT c FROM Country c ORDER BY c.name")
 public class Country {
 
     @Id
@@ -28,6 +29,8 @@ public class Country {
     private String capital;
     private String continent;
     private int importance;
+    
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate foundation;
 
     public Country() {
@@ -106,5 +109,16 @@ public class Country {
     public void setCountryId(Long countryId) {
         this.countryId = countryId;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+    
+    
+    
+    
+    
+    
 
 }

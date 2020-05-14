@@ -3,11 +3,13 @@
   <persistence-unit name="my-persistence-unit" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <shared-cache-mode>ALL</shared-cache-mode>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/practise"/>
       <property name="javax.persistence.jdbc.user" value="markus"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value="markus"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

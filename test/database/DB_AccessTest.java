@@ -4,7 +4,6 @@ import data.Country;
 import data.Representative;
 import java.lang.reflect.Modifier;
 import java.util.List;
-import pojos.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

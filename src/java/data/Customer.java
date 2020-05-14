@@ -3,40 +3,41 @@ package data;
 import adapters.DateAdapter;
 import adapters.LocalDateConverter;
 import java.time.LocalDate;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @Entity
 public class Customer {
 
-    
-
     @Id
     @GeneratedValue
     private Long customerId;
-    
+
     private String name;
-    
+
     private Gender gender;
-    
+
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate dateOfBirth;
-    
+
     @ManyToOne
+    @JoinColumn(name="representative_id")
     private Representative representative;
 
-    public Customer(){
+    public Customer() {
     }
-    
+
     public Customer(String name, Gender gender) {
         this.name = name;
         this.gender = gender;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -61,9 +62,8 @@ public class Customer {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
-    
-    //WARNING: do not use a reference to another class in the toString()
 
+    //WARNING: do not use a reference to another class in the toString()
     public Long getCustomerId() {
         return customerId;
     }
@@ -83,4 +83,5 @@ public class Customer {
     
     
     
+
 }
