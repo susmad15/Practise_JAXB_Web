@@ -45,7 +45,7 @@ public class XML_Access {
 
         holder = (DataHolder) JAXB.unmarshal(file, DataHolder.class);
 
-        for (Country country : holder.getCountries()) {
+        /*for (Country country : holder.getCountries()) {
             for (Representative representative
                     : country.getRepresentatives()) {
                 representative.setCountry(country);
@@ -53,9 +53,7 @@ public class XML_Access {
                     customer.setRepresentative(representative);
                 }
             }
-        }
-
-        //JAXB.marshal(holder, System.out);
+        }*/
         return holder;
 
     }

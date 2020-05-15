@@ -2,6 +2,7 @@ package data;
 
 import adapters.DateAdapter;
 import adapters.LocalDateConverter;
+import com.google.gson.annotations.Expose;
 import java.time.LocalDate;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -9,21 +10,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @Entity
+@NamedQuery(name = "Customer.getByRepresentative", query = "SELECT c FROM Customer c WHERE c.representative.name = :representativeName")
 public class Customer {
 
     @Id
     @GeneratedValue
+    @Expose
     private Long customerId;
 
+    @Expose
     private String name;
 
+    @Expose
     private Gender gender;
 
     @Convert(converter = LocalDateConverter.class)
+    @Expose
     private LocalDate dateOfBirth;
 
     @ManyToOne

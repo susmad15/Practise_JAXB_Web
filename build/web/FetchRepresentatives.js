@@ -7,6 +7,8 @@ class FetchRepresentatives {
         var country = document.getElementById("countrySelect").value;
         var url = "RetrieveRepresentativesFromCountry";
 
+        console.log("Country: " + country);
+
         console.log("Start: Loading Representatives")
 
         fetch(url, {
@@ -26,6 +28,13 @@ class FetchRepresentatives {
             let optionText = (json[i].name == null) ? "id=" + json[i].id : json[i].name;
             selectString += '<option value="' + json[i].id + '">' + optionText + '</option>';
         }
+        
+        /*for(var element in json)
+        {
+            let optionText = (element.name == null) ? "id=" + element.id : element.name;
+            
+            selectString += '<option value="' + element.id + '">' + optionText + '</option';
+        }*/
 
         document.getElementById("representativeSelect").innerHTML = selectString;
     }

@@ -139,7 +139,7 @@ public class DB_AccessTest {
             System.out.println ( "DB_AccessTestGetRepresentativesOfCountry: " + result );
             System.out.println ();
             String expected = "[Brunner]";
-            assertEquals ( result, expected );
+            assertEquals ( expected, result );
         }
         catch ( Exception e ) {
             System.out.println ( e.toString () );

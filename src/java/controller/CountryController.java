@@ -15,7 +15,7 @@ import server.DB_Access;
 public class CountryController extends HttpServlet {
 
     private DB_Access db = DB_Access.getInstance();
-    
+
     private String path;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -23,9 +23,9 @@ public class CountryController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         System.out.println("CountryController: start");
-        
+
         path = request.getSession().getServletContext().getRealPath("/res/countries.xml");
-        
+
         System.out.println("Pfad: " + path);
 
         db.persistDataHolder(path);

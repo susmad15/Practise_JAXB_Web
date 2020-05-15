@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -32,6 +34,7 @@ public class Representative {
     @JoinColumn(name = "country_id")
     private Country country;
 
+    @JoinColumn(name = "customer_id")
     @OneToMany(mappedBy = "representative", cascade = CascadeType.PERSIST)
     private List<Customer> customers = new ArrayList<>();
 
