@@ -7,23 +7,6 @@
         <title>Practise JAXB Web</title>
 
 
-        <script type="text/javascript" src="FetchRepresentatives.js"></script>
-        <script type="text/javascript" src="FetchCustomers.js"></script>
-        <script type="text/javascript">
-            const loadRepresentatives = () => {
-                console.log("Start: loadRepresenatives");
-
-                var fr = new FetchRepresentatives();
-                fr.loadRepresentatives();
-            }
-
-            const loadCustomers = () => {
-                console.log("Start: loadCustomers");
-
-                var fc = new FetchCustomers();
-                fc.loadCustomers();
-            }
-        </script>
 
 
     </head>
@@ -48,6 +31,26 @@
             </select>
 
         </form>
+
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="FetchRepresentatives.js"></script>
+        <script type="text/javascript" src="FetchCustomers.js"></script>
+        <script type="text/javascript">
+                const loadRepresentatives = () => {
+                    console.log("Start: loadRepresenatives");
+
+                    var fr = new FetchRepresentatives();
+                    fr.loadRepresentatives();
+                }
+
+                const loadCustomers = () => {
+                    console.log("Start: loadCustomers");
+
+                    var fc = new FetchCustomers();
+                    fc.loadCustomers();
+                }
+        </script>
 
     </body>
 </html>
