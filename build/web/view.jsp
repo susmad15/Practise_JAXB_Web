@@ -5,10 +5,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Practise JAXB Web</title>
-
-
-
-
     </head>
     <body>
         <h1>Practise JAXB Web</h1>
@@ -32,8 +28,6 @@
 
         </form>
 
-
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="FetchRepresentatives.js"></script>
         <script type="text/javascript" src="FetchCustomers.js"></script>
         <script type="text/javascript">

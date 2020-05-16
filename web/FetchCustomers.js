@@ -17,7 +17,6 @@ class FetchCustomers {
 
         fetch(url, {
             method: "POST",
-            headers: {"Accept": "application/json", "Content-Type": "application/json"},
             body: representative
         }).then(response => response.json()
         ).then(data => {
@@ -34,6 +33,7 @@ class FetchCustomers {
          let optionText = (element.name == null) ? "id=" + element.id : element.name;
          selectString += '<option value="' + element.id + '">' + optionText + '</option>';
          }*/
+
 
         for (let i = 0; i < json.length; i++) {
             let optionText = (json[i].name == null) ? "id=" + json[i].id : json[i].name;
