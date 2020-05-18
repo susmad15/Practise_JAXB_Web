@@ -3,6 +3,7 @@ package controller;
 import data.Country;
 import java.io.IOException;
 import java.util.List;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,17 +18,23 @@ public class CountryController extends HttpServlet {
 
     private String path;
 
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+
+        path = config.getServletContext().getRealPath("/res/countries.xml");
+
+        System.out.println("Pfad: " + path);
+
+        db.persistDataHolder(path);
+
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         System.out.println("CountryController: start");
-
-        path = request.getSession().getServletContext().getRealPath("/res/countries.xml");
-
-        System.out.println("Pfad: " + path);
-
-        db.persistDataHolder(path);
 
         List<Country> countries = db.getAllCountries();
 
